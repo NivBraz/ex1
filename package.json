@@ -1,0 +1,16 @@
+{
+  "name": "ex1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nivo",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "customer_service": "file:customer_service",
+    "express": "^4.15.2"
+  }
+}

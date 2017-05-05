@@ -1,0 +1,32 @@
+{
+    "clientId":224,
+    "orderMovies": [{
+        "id":16,
+        "name":"Kill bill",
+        "category":"action",
+        "director":"Quentin Tarantino",
+        "language":"english",
+        "status":"order"
+    }, {
+        "id":26,
+        "name":"Requiem for a Dream",
+        "category":"drama",
+        "director":"Darren Aronofsky",
+        "language":"english",
+        "status":"watched"
+    }, {
+        "id":269,
+        "name":"Perfect Strangers",
+        "category":"drama",
+        "director":"Paolo Genovese",
+        "language":"Italian",
+        "status":"watched"
+    }, {
+        "id":336,
+        "name":"Fear and Loathing in Las Vegas",
+        "category":"black comedy",
+        "director":"Terry Gilliam",
+        "language":"english",
+        "status":"order"
+    }]
+}
