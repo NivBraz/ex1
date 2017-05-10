@@ -8,14 +8,20 @@
     <p>for showing all the order movies (http verb:get) please enter:<br>
     <a href="https://peaceful-waters-26893.herokuapp.com/showordermovies">https://peaceful-waters-26893.herokuapp.com/showordermovies</a><br>
     in return you get a JSON that look like this:<br>
+    orderd movies: [<br>
     {<br>
-        id:26,<br>
-        name:"Requiem for a Dream",<br>
-        category:"drama",<br>
-        director:"Darren Aronofsky",<br>
-        language:"english",<br>
-        status:"watched"<br>
-    }</p>
+    id: 16,<br>
+    name: "Kill bill",<br>
+    category: "action",<br>
+    director: "Quentin Tarantino",<br>
+    language: "english",<br>
+    status: "order",<br>
+    actors: [<br>
+        "Uma Thurman",<br>
+        "David Carradine",<br>
+        "Daryl Hannah"<br>
+    ]<br>
+    }]</p>
     <p>for looking a specific movie by id (http verb:post) enter<br>
     <a href="https://peaceful-waters-26893.herokuapp.com/showMovieById/">https://peaceful-waters-26893.herokuapp.com/showMovieById/</a><br>
     and send in body under 'movieId' the require id number.<br>
