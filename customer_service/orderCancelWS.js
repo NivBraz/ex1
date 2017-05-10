@@ -32,29 +32,22 @@ class Client extends events{
 
     }
     getStatusLangMovie(status,lang){
-        var str = `{"ordered movies" : [`;
-        var counter =0;
+        var moviesArray = [];
         let found = false;
         for(let i in data.orderMovies){
             var orderMovie = data.orderMovies[i];
             if((orderMovie.status == status)&&(orderMovie.language == lang)){
                 console.log(`movie found: ${orderMovie.name}`);
                 found = true;
-                str += `{"movie name" :  "${orderMovie.name}",
-                         "movie id" : "${orderMovie.id}"
-                },`;
-                counter ++;
+                moviesArray.push(orderMovie);
             }
         }
         if(!found){
             console.log("movie not found");
             return {"error" : "movie not found"};
         }
-        else{
-            str += `{"number of movies" : "${counter}"}]}`;
-            var obj = JSON.parse(str);
-            return obj;
-        }
+        else
+            return {"ordered movies":moviesArray};
     }
 };
 

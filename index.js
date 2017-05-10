@@ -27,12 +27,12 @@ app.get('/showOrderMovies',
 app.get('/getstatuslangmovie/:status/:lang',
     (req,res) => {
         console.log(`get: ${req.params.status} ${req.params.lang}`);
-        res.json(client1.getStatusLangMovie(req.params.status,req.params.lang));
+        res.status(200).json(client1.getStatusLangMovie(req.params.status,req.params.lang));
     });
 app.post('/showMovieById/',
     (req,res) =>{
         console.log(`post: ${req.body.movieId}`);
-        res.json(client1.showMovieById(req.body.movieId));
+        res.status(200).json(client1.showMovieById(req.body.movieId));
     });
 
 

@@ -7,27 +7,31 @@
         "category":"action",
         "director":"Quentin Tarantino",
         "language":"english",
-        "status":"order"
+        "status":"order",
+        "actors":[ "Uma Thurman", "David Carradine", "Daryl Hannah"]
     }, {
         "id":26,
         "name":"Requiem for a Dream",
         "category":"drama",
         "director":"Darren Aronofsky",
         "language":"english",
-        "status":"watched"
+        "status":"watched",
+        "actors":[ "Ellen Burstyn", "Jared Leto", "Jennifer Connelly"]
     }, {
         "id":269,
         "name":"Perfect Strangers",
         "category":"drama",
         "director":"Paolo Genovese",
         "language":"Italian",
-        "status":"watched"
+        "status":"watched",
+        "actors":[ "Giuseppe Battiston", " Anna Foglietta", "Marco Giallini"]
     }, {
         "id":336,
         "name":"Fear and Loathing in Las Vegas",
         "category":"black comedy",
         "director":"Terry Gilliam",
         "language":"english",
-        "status":"order"
+        "status":"order",
+        "actors":[ "Johnny Depp", "Benicio Del Toro", "Tobey Maguire"]
     }]
 }
