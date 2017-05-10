@@ -21,6 +21,7 @@ app.get('/',
 
 app.get('/showOrderMovies',
     (req,res) => {
+        console.log("get: show all");
         res.status(200).json(client1.showOrderMovies());
     });
 
