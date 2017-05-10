@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>cancel order movie</title>
+</head>
+<body>
+    <h1>welcome to cancel order movie</h1>
+    <p>for showing all the order movies (http verb:get) please enter:<br>
+    <a href="https://peaceful-waters-26893.herokuapp.com/showordermovies">https://peaceful-waters-26893.herokuapp.com/showordermovies</a><br>
+    in return you get a JSON that look like this:<br>
+    {<br>
+        id:26,<br>
+        name:"Requiem for a Dream",<br>
+        category:"drama",<br>
+        director:"Darren Aronofsky",<br>
+        language:"english",<br>
+        status:"watched"<br>
+    }</p>
+    <p>for looking a specific movie by id (http verb:post) enter<br>
+    <a href="https://peaceful-waters-26893.herokuapp.com/showMovieById/">https://peaceful-waters-26893.herokuapp.com/showMovieById/</a><br>
+    and send in body under 'movieId' the require id number.<br>
+    in return you get the same JSON as before and if there is'nt any movie with this id you get an error JSON that look like this :<br>
+    {error : "movie not found"}</p>
+    <p>for searching a movie by his language and status (http verb:get) enter:<br>
+    <a href="https://peaceful-waters-26893.herokuapp.com/getstatuslangmovie/watched/Italian">https://peaceful-waters-26893.herokuapp.com/getstatuslangmovie/status/langauge</a><br>
+    status can be (order,watched), language can be any language you want (english, italian,...).<br>
+    in return you get the same JSON and error JSON as before, if there are multiple movies with those details
+    the return will be array of JSON.</p>
+</body>
+</html>

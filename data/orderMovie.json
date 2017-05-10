@@ -1,5 +1,6 @@
 {
     "clientId":224,
+    "name" : "niv",
     "orderMovies": [{
         "id":16,
         "name":"Kill bill",
