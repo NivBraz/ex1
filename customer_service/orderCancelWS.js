@@ -3,16 +3,34 @@ var events = require('events');
 // var eventConfig = require('./config').events;
 var data = require("./../data/orderMovie.json");
 
+const mongoose = require('mongoose'),
+      consts = require('./consts.js');
+
+mongoose.Promise = global.Promise;
+
+mongoose.connect(consts.MLAB_KEY);
+var conn = mongoose.connection;//get default connection
+
+var Movie = require('./db_schema_movie.js');
+
 class Client extends events{
 
     constructor(name,id){
         super();
         this.name = name;
         this.id = id;
-    }
+    }   
 
     showOrderMovies(){
-        return {"orderd movies" : data.orderMovies};
+        conn.once('open',
+                () => {
+                    Movie.find({},
+                        (err,movie) => {
+                            if(err) console.log(`query error: ${err}`);
+                            console.log(movie);
+                            mongoose.disconnect();
+                        });
+                    });
     }
 
     showMovieById(movieId){
