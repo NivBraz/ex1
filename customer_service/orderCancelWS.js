@@ -4,16 +4,23 @@ var events = require('events');
 var data = require("./../data/orderMovie.json");
 
 const mongoose = require('mongoose'),
-      consts = require('./consts.js');
+       consts = require('./consts.js');
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect(consts.MLAB_KEY);
-var conn = mongoose.connection;//get default connection
 
-var Movie = require('./db_schema_movie.js');
+
+// mongoose.connection.on('connected', function () {
+//     mongoose.connection.db.listCollections(function (err, names) {
+//         if (err) console.log(err);
+//         else console.log(names);
+//     });
+// })
+
+
 
 class Client extends events{
+
 
     constructor(name,id){
         super();
@@ -22,15 +29,38 @@ class Client extends events{
     }   
 
     showOrderMovies(){
+        mongoose.connect(consts.MLAB_KEY);
+        var conn = mongoose.connection;
+        var eror = false;
+        var Movie = require('./db_schema_movie.js');
+
+        conn.on('error',
+            (err) => {
+                console.log(`connection error: ${err}`);
+        });
+
         conn.once('open',
                 () => {
                     Movie.find({},
                         (err,movie) => {
-                            if(err) console.log(`query error: ${err}`);
-                            console.log(movie);
-                            mongoose.disconnect();
+                            if (err) eror = true;
+                            else{
+                                console.log(movie);
+                                this.movies=movie;
+                            }
+                            mongoose.disconnect();    
                         });
                     });
+        return new Promise((resolve,reject) => {
+                                if(eror)
+                                    reject(err);
+                                else
+                                    resolve();
+                            });
+    }
+
+    getMovies(){
+        return this.movies;
     }
 
     showMovieById(movieId){

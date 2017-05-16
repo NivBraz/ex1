@@ -21,9 +21,21 @@ app.get('/',
 
 app.get('/showOrderMovies',
     (req,res) => {
+        var msg;
         console.log("get: show all");
-        res.status(200).json(client1.showOrderMovies());
-    });
+        var p1 = client1.showOrderMovies()
+         .then(() => {
+            msg = client1.getMovies();
+        })
+         .catch((err) =>{
+            console.log(`err ! ${msg}`);
+         });
+        var p2 = 1;
+         Promise.all([p1,p2])
+            .then(() => {res.status(200).json(msg);})
+            .catch((err) => {console.error(err);});
+         
+        })
 
 app.get('/getstatuslangmovie/:status/:lang',
     (req,res) => {
