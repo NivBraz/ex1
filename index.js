@@ -21,31 +21,28 @@ app.get('/',
 
 app.get('/showOrderMovies',
     (req,res) => {
-        var msg;
         console.log("get: show all");
-        var p1 = client1.showOrderMovies()
-         .then(() => {
-            msg = client1.getMovies();
-        })
-         .catch((err) =>{
-            console.log(`err ! ${msg}`);
-         });
-        var p2 = 1;
-         Promise.all([p1,p2])
-            .then(() => {res.status(200).json(msg);})
-            .catch((err) => {console.error(err);});
-         
-        })
+        client1.showOrderMovies((err,movies) =>{
+            if(err) res.status(200).json(err);
+            else res.status(200).json(movies);
+        });
+    });
 
 app.get('/getstatuslangmovie/:status/:lang',
     (req,res) => {
         console.log(`get: ${req.params.status} ${req.params.lang}`);
-        res.status(200).json(client1.getStatusLangMovie(req.params.status,req.params.lang));
+        client1.getStatusLangMovie(req.params.status,req.params.lang,(err,movie) =>{
+            if(err) res.status(200).json(err);
+            else res.status(200).json(movie);
+        });
     });
 app.post('/showMovieById/',
     (req,res) =>{
         console.log(`post: ${req.body.movieId}`);
-        res.status(200).json(client1.showMovieById(req.body.movieId));
+        client1.showMovieById(req.body.movieId,(err,movie) =>{
+            if(err) res.status(200).json(err);
+            else res.status(200).json(movie);
+        });
     });
 
 
